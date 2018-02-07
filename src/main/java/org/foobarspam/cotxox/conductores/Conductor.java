@@ -30,7 +30,7 @@ public class Conductor {
 	}
 	public void setOcupado(Boolean ocupado) {
 		this.ocupado = ocupado;
-	}
+	}	
 	public Boolean getOcupado() {
 		return this.ocupado;
 	}
