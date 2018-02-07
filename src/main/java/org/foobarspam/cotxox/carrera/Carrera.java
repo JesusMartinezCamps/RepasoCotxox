@@ -7,15 +7,15 @@ public class Carrera {
 	//Attributes
 	Conductor conductor = null;
 	
-	int tiempoEsperado = 0;
-	int tiempoCarrera= 0;
-
-	double costeTotal = 0.0;
-	double distancia = 0.0;
+	private double tiempoCarrera = 0;
+	private double tiempoEsperado = 0.0;
 	
-	String tarjetaCredito = "";
-	String origen = "";
-	String destino = "";
+	private double costeTotal = 0.0;
+	private double distancia = 0.0;
+	
+	private String tarjetaCredito = "";
+	private String origen = "";
+	private String destino = "";
 	
 	
 	//Constructor
@@ -39,6 +39,9 @@ public class Carrera {
 	}
 	
 	
+	public double getTiempoEsperado() {
+		return this.tiempoEsperado;
+	}
 	public String getTarjetaCredito() {
 		return this.tarjetaCredito;
 	}
@@ -52,6 +55,6 @@ public class Carrera {
 		return this.distancia;
 	}
 	public double getCosteEsperado() {
-		return Tarifa.getCosteEsperado();
+		return Tarifa.getCosteTotalEsperado(getDistancia(), getCosteEsperado());
 	}
 }
