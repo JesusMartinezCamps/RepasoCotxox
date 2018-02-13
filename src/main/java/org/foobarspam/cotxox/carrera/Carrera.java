@@ -17,6 +17,7 @@ public class Carrera {
 	private String origen = "";
 	private String destino = "";
 	
+	private int propina = 0;
 	
 	//Constructor
 	public Carrera(String tarjetaCredito) {
@@ -27,6 +28,9 @@ public class Carrera {
 	//Getters and setters
 	public void setOrigen(String origen) {
 		this.origen = origen;
+	}
+	public void setConductor(Conductor conductor) {
+		this.conductor = conductor;
 	}
 	public void setDestino(String destino) {
 		this.destino = destino;
@@ -55,6 +59,37 @@ public class Carrera {
 		return this.distancia;
 	}
 	public double getCosteEsperado() {
-		return Tarifa.getCosteTotalEsperado(getDistancia(), getCosteEsperado());
+		return Tarifa.getCosteTotalEsperado(getDistancia(), getTiempoEsperado());
+	}
+
+	public void asignarConductor(PoolConductores conductores) {
+		setConductor(conductores.asignarConductor());
+	}
+
+
+	public Conductor getConductor() {
+		return this.conductor;
+	}
+
+
+	public void realizarPago(double costeEsperado) {
+		this.costeTotal = costeTotal + costeEsperado;
+	}
+
+
+	public void recibirPropina(int propina) {
+		this.propina = propina;
+	}
+	public int getPropina() {
+		return this.propina;
+	}
+	public void liberarConductor() {
+		this.conductor.setOcupado(false);
+	}
+
+
+	public double getCosteTotal() {
+		// TODO Auto-generated method stub
+		return this.costeTotal;
 	}
 }

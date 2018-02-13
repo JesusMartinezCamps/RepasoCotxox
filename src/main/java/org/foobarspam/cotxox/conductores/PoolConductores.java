@@ -8,8 +8,10 @@ public class PoolConductores {
 	private ArrayList<Conductor> poolConductores = new ArrayList<Conductor>();
 	
 	//Constructor
-	public PoolConductores(ArrayList<Conductor> poolConductores) {
-		this.poolConductores = poolConductores;
+	public PoolConductores(ArrayList<Conductor> conductores) {
+		for (Conductor conductor : conductores){
+			this.poolConductores.add(conductor);
+		}
 	}
 	
 	//Getters & Setters
@@ -18,18 +20,13 @@ public class PoolConductores {
 	}
 	//Methods
 	public Conductor asignarConductor(){
-		int pilotoNumero = ThreadLocalRandom.current().nextInt(0, this.poolConductores.size());
-		Conductor pilotoAsignado = null;
 		
-		while(pilotoAsignado == null){
-			if(this.poolConductores.get(pilotoNumero).getOcupado() == true){
-				pilotoAsignado = this.poolConductores.get(pilotoNumero);
-				pilotoAsignado.setOcupado(true);
-				
-			}
-			else
-				pilotoNumero = ThreadLocalRandom.current().nextInt(0, this.poolConductores.size());
-					}
-		return pilotoAsignado;
+		// Nos aseguramos que sea un conductor aleatorio, para que no perdamos trabajadores.
+				int numeroConductor = ThreadLocalRandom.current().nextInt(getPoolConductores().size());
+				while(getPoolConductores().get(numeroConductor).getOcupado() == true){
+					numeroConductor = ThreadLocalRandom.current().nextInt(getPoolConductores().size());
+				}
+				getPoolConductores().get(numeroConductor).setOcupado(true);
+				return getPoolConductores().get(numeroConductor);
 	}
 }

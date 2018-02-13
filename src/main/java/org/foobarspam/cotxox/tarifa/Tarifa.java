@@ -22,7 +22,7 @@ public class Tarifa {
 	
 	//Methods
 	public static double getCosteTotalEsperado(double distancia, double tiempo) {
-		double coste = (distancia * getCosteMilla()) * (tiempo * getCosteMinuto());
+		double coste = (distancia * getCosteMilla()) + (tiempo * getCosteMinuto());
 		
 		if(coste < getCosteMinimo())
 			return getCosteMinimo();

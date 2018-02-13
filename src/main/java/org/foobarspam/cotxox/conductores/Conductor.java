@@ -30,7 +30,13 @@ public class Conductor {
 	}
 	public void setOcupado(Boolean ocupado) {
 		this.ocupado = ocupado;
-	}	
+	}
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
 	public Boolean getOcupado() {
 		return this.ocupado;
 	}
@@ -47,5 +53,22 @@ public class Conductor {
 		
 		valoracionMedia = sumaValoraciones / getValoraciones().size();
 		
+	}
+
+	public String getModelo() {
+		return this.modelo;
+	}
+
+	public String getMatricula() {
+		return this.matricula;
+	}
+
+	public double getValoracion() {
+		// TODO Auto-generated method stub
+		return this.valoracionMedia;
+	}
+
+	public boolean isOcupado() {
+		return getOcupado();
 	}
 }
